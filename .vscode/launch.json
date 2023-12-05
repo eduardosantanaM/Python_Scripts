@@ -14,7 +14,8 @@
             "args": [
                 "/mnt/c/temp/storage_download656f552ab9a09/tmp/f360/storage_download656f552ab9a09",
                 "ofx",
-                "<BANKID>32402502"
+                "<BANKID>32402502",
+                "/mnt/c/temp/QI"
             ]
         }
     ]
