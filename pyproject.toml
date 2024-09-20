@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "python-scripts"
+version = "0.1.0"
+description = ""
+authors = ["Eduardo Santana <eduardo.silva@financas360.com.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+pymongo = "^4.9.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+flake8 = "^7.1.1"
+mypy = "^1.11.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
