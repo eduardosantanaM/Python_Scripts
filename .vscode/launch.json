@@ -5,18 +5,46 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Change Ext",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/change_extension.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+               
+            ]
+        },
+        {
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "/mnt/c/temp/storage_download656f552ab9a09/tmp/f360/storage_download656f552ab9a09",
-                "ofx",
-                "<BANKID>32402502",
-                "/mnt/c/temp/QI"
+              
             ]
+        },
+        {
+            "name": "Python: Search words in file",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/search_word_file.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+             
+            ]
+        },
+        {
+            "name": "Python: Encontrar problemas fluxos de caixa",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/fluxo_caixa",
+            "program": "${workspaceFolder}/fluxo_caixa/achar_divergencias_fluxo_caixa.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
         }
     ]
 }

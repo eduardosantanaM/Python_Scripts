@@ -1,0 +1,8 @@
+{
+    // CRIE UM ARQUIVO config.json NESSE MODELO
+    "cookie": "",
+    "data_inicio": "2024-07-01T00:00:00",
+    "data_fim": "2024-07-30T00:00:00",
+    "database_name": "cp_btsg",
+    "contas_ids": []
+}
