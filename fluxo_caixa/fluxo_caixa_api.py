@@ -4,13 +4,12 @@ from datetime import datetime
 
 
 class FluxoDeCaixaAPI:
-    def __init__(self, base_url: str, headers: Dict[str, str]):
+    def __init__(self, base_url: str, headers: Dict[str, str], modeloFluxoId: str):
         self.base_url = base_url
         self.headers = headers
+        self.modeloFluxoId = modeloFluxoId
 
-    def requisitar_fluxo_de_caixa_simples(
-        self, data_inicio: datetime, data_fim: datetime, conta: str
-    ) -> Optional[Dict[str, Any]]:
+    def requisitar_fluxo_de_caixa_simples(self, data_inicio: datetime, data_fim: datetime, conta: str) -> Optional[Dict[str, Any]]:
         url = f"{self.base_url}/FluxoDeCaixaAPI/IniciarFluxoDeCaixa/"
         params = {
             "Inicio": data_inicio.isoformat() + "Z",
@@ -23,7 +22,7 @@ class FluxoDeCaixaAPI:
             "ValoresNosDiasOriginais": False,
             "OcultarDinheiroDeCaixasAbertos": False,
             "AdicionarUmDiaNoVencimentoDeBoletosAReceber": False,
-            "OcultarTitulosVencidos": False,
+            "OcultarTitulosVencidos": False
         }
 
         try:
@@ -31,17 +30,13 @@ class FluxoDeCaixaAPI:
             if response.status_code == 200:
                 return response.json()
             else:
-                print(
-                    f"Erro na requisição do fluxo de caixa simples: {response.status_code}"
-                )
+                print(f"Erro na requisição do fluxo de caixa simples: {response.status_code}")
                 return None
         except Exception as e:
             print(f"Erro ao fazer requisição ao fluxo de caixa simples: {e}")
             return None
 
-    def requisitar_fluxo_de_caixa_analitico(
-        self, data_inicio: datetime, data_fim: datetime, conta: str
-    ) -> Optional[Dict[str, Any]]:
+    def requisitar_fluxo_de_caixa_analitico(self, data_inicio: datetime, data_fim: datetime, conta: str, modeloFluxoCaixa: str=None) -> Optional[Dict[str, Any]]:
         url = f"{self.base_url}/FluxoDeCaixaAPI/IniciarFluxoDeCaixaAnalitico/"
         params = {
             "Inicio": data_inicio.isoformat(),
@@ -49,7 +44,7 @@ class FluxoDeCaixaAPI:
             "Status": 0,
             "TipoDePeriodo": 0,
             "Contas": conta,
-            "ModeloDoFluxoId": "662529ba7e1eb145dead2120",
+            "ModeloDoFluxoId": self.modeloFluxoId,
             "APartirUltimoDiaConciliado": False,
             "ExibirParcelasNaoAprovadas": False,
             "OcultarTransferencias": False,
@@ -58,7 +53,7 @@ class FluxoDeCaixaAPI:
             "AdicionarUmDiaNoVencimentoDeBoletosAReceber": False,
             "OcultarTitulosVencidos": False,
             "ExibirPrevisoes": False,
-            "AnaliseVertical": False,
+            "AnaliseVertical": False
         }
 
         try:
@@ -66,9 +61,7 @@ class FluxoDeCaixaAPI:
             if response.status_code == 200:
                 return response.json()
             else:
-                print(
-                    f"Erro na requisição do fluxo de caixa analítico: {response.status_code}"
-                )
+                print(f"Erro na requisição do fluxo de caixa analítico: {response.status_code}")
                 return None
         except Exception as e:
             print(f"Erro ao fazer requisição ao fluxo de caixa analítico: {e}")
