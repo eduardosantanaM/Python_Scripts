@@ -2,7 +2,6 @@ import json
 from datetime import datetime
 import os
 
-
 class Config:
     def __init__(self, config_file='config.json'):
         # Carregar as configurações do arquivo
@@ -20,14 +19,20 @@ class Config:
         self.database_name: str = config_data['database_name']
         self.contas_ids: list = config_data.get('contas_ids', []) 
         self.modelo_fluxo_id: str = config_data['modelo_fluxo_id']
-
+        self.driver_path: str = config_data['driver_path'] 
+        self.login: str = config_data['login']
+        self.senha: str = config_data['senha']
+        self.url_base_fin: str = config_data["url_base_fin"]
+        self.mongo_uri: str = config_data["mongo_uri"]
+        
     def __repr__(self):
         """Representação legível da configuração."""
         return (f"Config(cookie='{self.cookie}', "
                 f"data_inicio='{self.data_inicio}', "
                 f"data_fim='{self.data_fim}', "
-                f"database_name='{self.database_name}')")
-
+                f"database_name='{self.database_name}', "
+                f"driver_path='{self.driver_path}', "
+                f"login='{self.login}')")
 
 # Exemplo de uso da classe Config
 if __name__ == "__main__":

@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 requests = "^2.32.3"
 pymongo = "^4.9.1"
+colorlog = "^6.8.2"
+selenium = "^4.25.0"
 
 
 [tool.poetry.group.dev.dependencies]
