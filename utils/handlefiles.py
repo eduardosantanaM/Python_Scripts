@@ -8,6 +8,7 @@ def delete_folder(folder_name: str):
     except Exception as e:
         print(f"Erro ao deletar diretorio: {e}")
 
+
 def delete_file(file_name: str):
     try:
         os.remove(file_name)
